@@ -25,7 +25,7 @@ data = {
 # Loading into DataFrame
 df = pd.DataFrame(data)
 
-print("\n--- ORIGINAL TRANSACTION DATASET ---")
+print("\ ORIGINAL TRANSACTION DATASET")
 print(df)
 
 # Converting item strings into lists
@@ -40,7 +40,7 @@ encoded_df = pd.DataFrame(0, index=df['Transaction_ID'], columns=all_items)
 for tid, items in zip(df['Transaction_ID'], df['Items']):
     encoded_df.loc[tid, items] = 1
 
-print("\n--- ONE-HOT ENCODED DATASET ---")
+print("\n ONE-HOT ENCODED DATASET")
 print(encoded_df)
 
 # PART B: APRIORI ALGORITHM
@@ -51,7 +51,7 @@ frequent_itemsets = apriori(
     use_colnames=True
 )
 
-print("\n--- FREQUENT ITEMSETS (Support ≥ 0.2) ---")
+print("\n FREQUENT ITEMSETS (Support ≥ 0.2)")
 print(frequent_itemsets)
 
 # Generating association rules
@@ -66,4 +66,5 @@ rules = rules[['antecedents', 'consequents', 'support', 'confidence', 'lift']]
 
 print("\n--- ASSOCIATION RULES (Confidence ≥ 0.5) ---")
 print(rules)
+
 
